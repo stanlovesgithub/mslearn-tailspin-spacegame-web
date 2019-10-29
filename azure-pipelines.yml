@@ -5,7 +5,6 @@ pool:
 
 variables:
   buildConfiguration: 'Release'
-<<<<<<< HEAD
   wwwrootDir: 'Tailspin.SpaceGame.Web/wwwroot'
   dotnetSdkVersion: '2.1.505'
 
@@ -14,27 +13,13 @@ steps:
   displayName: 'Use .NET Core SDK $(dotnetSdkVersion)'
   inputs:
     version: '$(dotnetSdkVersion)'
-=======
-  wwwRootDirectory: 'Tailspin.SpaceGame.Web/wwwroot'
-  dotnetSDK: '2.1.505'
-
-steps:
-- task: DotNetCoreInstaller@0
-  displayName: 'Use .NET Core SDK $(dotnetSDK)'
-  inputs:
-    version: '$(dotnetSDK)'
->>>>>>> master
 
 - task: Npm@1
   displayName: 'Run npm install'
   inputs:
     verbose: false
 
-<<<<<<< HEAD
 - script: './node_modules/.bin/node-sass $(wwwrootDir) --output $(wwwrootDir)'
-=======
-- script: './node_modules/.bin/node-sass $(wwwRootDirectory) --output $(wwwRootDirectory)'
->>>>>>> master
   displayName: 'Compile Sass assets'
 
 - task: gulp@1
@@ -42,11 +27,7 @@ steps:
 
 - script: 'echo "$(Build.DefinitionName), $(Build.BuildId), $(Build.BuildNumber)" > buildinfo.txt'
   displayName: 'Write build info'
-<<<<<<< HEAD
   workingDirectory: $(wwwrootDir)
-=======
-  workingDirectory: $(wwwRootDirectory)
->>>>>>> master
 
 - task: DotNetCoreCLI@2
   displayName: 'Restore project dependencies'
@@ -54,7 +35,6 @@ steps:
     command: 'restore'
     projects: '**/*.csproj'
 
-<<<<<<< HEAD
 - task: SonarCloudPrepare@1
   displayName: 'Prepare SonarCloud analysis'
   inputs:
@@ -74,8 +54,6 @@ steps:
       eq(variables['System.PullRequest.TargetBranch'], 'master')
     )
 
-=======
->>>>>>> master
 - task: DotNetCoreCLI@2
   displayName: 'Build the project - $(buildConfiguration)'
   inputs:
@@ -84,7 +62,6 @@ steps:
     projects: '**/*.csproj'
 
 - task: DotNetCoreCLI@2
-<<<<<<< HEAD
   displayName: 'Install ReportGenerator'
   inputs:
     command: custom
@@ -130,8 +107,6 @@ steps:
     summaryFileLocation: '$(Build.SourcesDirectory)/**/coverage.cobertura.xml'
 
 - task: DotNetCoreCLI@2
-=======
->>>>>>> master
   displayName: 'Publish the project - $(buildConfiguration)'
   inputs:
     command: 'publish'
