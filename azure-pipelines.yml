@@ -33,6 +33,8 @@ steps:
   displayName: 'Write build info'
   workingDirectory: $(wwwrootDir)
 
+  #this restore is taking ages. Around 5 mins
+  #need to investigate more
 - task: NuGetCommand@2
   displayName: 'Restore project dependencies'
   inputs:
