@@ -1,7 +1,4 @@
-pool:
-  name: 'MyAgentPool'
-  demands:
-    - npm
+pool: 'MyAgentPool'
 
 variables:
   buildConfiguration: 'Release'
