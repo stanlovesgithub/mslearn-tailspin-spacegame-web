@@ -2,8 +2,6 @@ pool:
   name: 'MyAgentPool'
   demands:
     - agent.name -equals 'MyLinuxAgent' 
-    - Agent.Version -gtVersion '2.155.1'
-
 
 variables:
   buildConfiguration: 'Release'
