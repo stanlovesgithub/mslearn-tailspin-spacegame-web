@@ -2,7 +2,7 @@ pool:
   name: 'MyAgentPool'
   demands:
     - agent.name -equals 'MyLinuxAgent' 
-    - Agent.Version -equals '2.159.2'
+    - Agent.Version -gtVersion '2.155.1'
 
 
 variables:
