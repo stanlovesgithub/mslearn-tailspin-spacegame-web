@@ -1,5 +1,7 @@
 pool: 
   name: 'MyAgentPool'
+  demands:
+    - agent.name -equals 'MyLinuxAgent' 
 
 
 variables:
